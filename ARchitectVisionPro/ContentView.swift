@@ -14,37 +14,13 @@ struct ContentView: View {
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openWindow) var openWindow
-
+    
     @State private var label = Label()
     @State private var enlarge = false
     @State private var isImmersive = false
     
     
     var body: some View {
-        defaultContent
-//        LabelView(label: $label)
-//            .padding()
-//            .ornament(attachmentAnchor: .scene(.bottom)) {
-//                
-//                HStack(spacing: 30) {
-//                    Slider(value: $label.cornerRadius, in: 0...100)
-//                        .frame(width: 100)
-//                    
-//                
-//                    Button("Create") {
-//                        openWindow(value: label)
-//                        label = Label()
-//                        
-//                    }
-//                    
-//                }
-//                .padding()
-//                .glassBackgroundEffect()
-//            }
-        
-    }
-    
-    var defaultContent: some View {
         VStack {
             RealityView { content in
                 if let globe = try? await Entity(named: "Scene", in: realityKitContentBundle) {
@@ -59,9 +35,8 @@ struct ContentView: View {
             } placeholder: {
                 ProgressView()
             }
+            
 
-            
-            
             VStack {
                 if isImmersive {
                     Button("Close Immersive Space") {
@@ -73,7 +48,7 @@ struct ContentView: View {
                 } else {
                     Button("Open Immersive Space") {
                         Task {
-                            await openImmersiveSpace(id: "Planets")
+                            await openImmersiveSpace(id: "Chair")
                         }
                         isImmersive.toggle()
                     }
@@ -84,6 +59,30 @@ struct ContentView: View {
             }
             
         }
+        
+        
+    }
+    
+    var ornament: some View {
+        LabelView(label: $label)
+            .padding()
+            .ornament(attachmentAnchor: .scene(.bottom)) {
+                
+                HStack(spacing: 30) {
+                    Slider(value: $label.cornerRadius, in: 0...100)
+                        .frame(width: 100)
+                    
+                    
+                    Button("Create") {
+                        openWindow(value: label)
+                        label = Label()
+                        
+                    }
+                    
+                }
+                .padding()
+                .glassBackgroundEffect()
+            }
     }
 }
 

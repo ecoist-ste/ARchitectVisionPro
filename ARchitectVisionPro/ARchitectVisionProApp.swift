@@ -25,8 +25,8 @@ struct ARchitectVisionProApp: App {
         .windowResizability(.contentSize)
         .windowStyle(.plain)
         
-        ImmersiveSpace(id: "Planets") {
-            PlanetView()
+        ImmersiveSpace(id: "Chair") {
+            FurniturePlacementView()
         }
         
 
