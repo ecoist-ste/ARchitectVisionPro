@@ -10,20 +10,23 @@ import SwiftUI
 @main
 struct ARchitectVisionProApp: App {
 
-//    @State private var appModel = AppModel()
+    @State private var appState = AppState()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthenticationView()
+                .environment(appState)
         }.windowResizability(.contentSize)
         
-        WindowGroup(for: Label.self) { $label in
-            LabelView(label: $label)    
-        } defaultValue: {
-            Label(text: "", cornerRadius: 20)
-        }
-        .windowResizability(.contentSize)
-        .windowStyle(.plain)
+        
+        /// The code below allows the user to open up a new window, super cool, and we might use it later
+//        WindowGroup(for: Label.self) { $label in
+//            
+//        } defaultValue: {
+//            Label(text: "", cornerRadius: 20)
+//        }
+//        .windowResizability(.contentSize)
+//        .windowStyle(.plain)
         
         ImmersiveSpace(id: "Chair") {
             FurniturePlacementView()
