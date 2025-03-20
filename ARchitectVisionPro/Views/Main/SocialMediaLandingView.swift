@@ -16,22 +16,49 @@ struct SocialMediaLandingView: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                Section("Intro") {
-                    Text("This is intro")
-                }
+                featurePostView
 
-                Section("Furniture-Inspirations") {
-                    Text("This is furniture-inspiration")
-                }
+                furnitureRecView
                 
-                Section("User-Posts") {
-                    
-                }
-                HStack { Spacer() }
+                othersPostsFeedView
+
             }
-            .padding()
+            .padding(50)
         }
         .glassBackgroundEffect()
+    }
+    
+    // placed at the top of the feed
+    // updated daily
+    var featurePostView: some View {
+        Image("poster1")
+            .resizable()
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .frame(height: 450)
+            .aspectRatio(contentMode: .fit)
+            .overlay {
+                Button("Discover ➜") {
+                    
+                }.buttonStyle(.bordered)
+                .offset(x: -450, y: 150)
+            }
+            
+    }
+    
+    // shows a collection of furniture pieces
+    // recommended to the user
+    var furnitureRecView: some View {
+        VStack(alignment: .leading) {
+            Text("Get Inspired").font(.extraLargeTitle)
+            FurnitureFiltersView()
+            HStack { Spacer() }
+        }
+    }
+    
+    var othersPostsFeedView: some View {
+        VStack {
+            
+        }
     }
 }
 
