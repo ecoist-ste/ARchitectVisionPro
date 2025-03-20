@@ -20,7 +20,7 @@ struct AuthenticationView: View {
     var body: some View {
         ZStack {
             if showLandingPage {
-                SocialMediaLandingView()
+                TabControllerView()
                     .transition(.opacity)
             } else if showWelcomePage {
                 WelcomeView()

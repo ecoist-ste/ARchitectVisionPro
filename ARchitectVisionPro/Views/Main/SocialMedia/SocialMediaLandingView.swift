@@ -17,11 +17,11 @@ struct SocialMediaLandingView: View {
         ScrollView {
             LazyVStack {
                 featurePostView
-
+                
                 furnitureRecView
                 
                 othersPostsFeedView
-
+                
             }
             .padding(50)
         }
@@ -40,9 +40,9 @@ struct SocialMediaLandingView: View {
                 Button("Discover ➜") {
                     
                 }.buttonStyle(.bordered)
-                .offset(x: -450, y: 150)
+                    .offset(x: -450, y: 150)
             }
-            
+        
     }
     
     // shows a collection of furniture pieces
@@ -56,9 +56,9 @@ struct SocialMediaLandingView: View {
     }
     
     var othersPostsFeedView: some View {
-        VStack {
-            
-        }
+        FurniturePostView()
+        .padding()
+        
     }
 }
 
