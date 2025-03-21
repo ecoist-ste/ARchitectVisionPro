@@ -31,7 +31,8 @@ struct AuthenticationView: View {
                     .transition(.opacity)
             }
         }
-        .animation(.default, value: showLandingPage)
+        .animation(.easeInOut, value: showWelcomePage)
+        .animation(.easeInOut, value: showLandingPage)
     }
     
     var authentication: some View {
