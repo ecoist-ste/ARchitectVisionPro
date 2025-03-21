@@ -9,14 +9,18 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            Text("Welcome")
-                .font(.largeTitle)
-            Spacer()
-            HStack { Spacer() }
+        ZStack {
+            Image("banner1")
+                .resizable()
+            VStack {
+                Spacer()
+                Text("Welcome, Architect!")
+                    .font(.system(size: 50))
+                    .bold()
+                Spacer()
+                HStack { Spacer() }
+            }
         }
-        .glassBackgroundEffect()
     }
 }
 
