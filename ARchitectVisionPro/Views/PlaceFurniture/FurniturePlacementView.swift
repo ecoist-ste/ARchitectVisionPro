@@ -18,7 +18,7 @@ struct FurniturePlacementView: View {
     
     var body: some View {
         RealityView { content, attachments in
-            if let scene = try? await Entity(named: "Welcome", in: realityKitContentBundle) {
+            if let scene = try? await Entity(named: "chair1", in: realityKitContentBundle) {
                 content.add(scene)
                 print("scene's position: ", scene.position)
                 

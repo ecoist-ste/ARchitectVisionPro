@@ -48,8 +48,9 @@ struct OnePostView: View {
                     presentSheet = false
                 }, content: {
                     FurniturePostDetailView(image: "table12d", name: "Table 1", description: "Side table, stone, 40x28cm", price: 83)
+                        .frame(width: 1000)
                 })
-
+            
                 
             
             VStack(alignment: .leading) {
