@@ -31,7 +31,7 @@ struct SocialMediaLandingView: View {
     // placed at the top of the feed
     // updated daily
     var featurePostView: some View {
-        Image("poster1")
+        Image("banner4")
             .resizable()
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .frame(height: 450)

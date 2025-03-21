@@ -35,19 +35,23 @@ struct AuthenticationView: View {
     }
     
     var authentication: some View {
-        VStack {
-            Spacer()
-            HStack { Spacer() }
-            
-            logo
-            
-            Text(showInstruction || !showLandingPage ? "Long Press Logo to Continue" : "")
-                .opacity(0.5)
-                .transition(.opacity)
-            
-            Spacer()
+        ZStack {
+            Image("banner1")
+                .resizable()
+            VStack {
+                Spacer()
+                HStack { Spacer() }
+                
+                logo
+                
+                Text(showInstruction || !showLandingPage ? "Long Press Logo to Continue" : "")
+                    .opacity(0.5)
+                    .transition(.opacity)
+                
+                Spacer()
+            }
+            .background(.thinMaterial)
         }
-        .glassBackgroundEffect()
     }
     
     var logo: some View {
@@ -82,7 +86,8 @@ struct AuthenticationView: View {
                 isPressing = value
             }
             
-            Text("Find your inspirations")
+            Text("Find your furniture inspirations")
+                .font(.system(size: 20))
                 .padding(.top, 2)
                 .padding(.bottom, 5)
               
