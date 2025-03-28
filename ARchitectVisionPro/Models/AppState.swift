@@ -8,13 +8,16 @@
 import Foundation
 
 @Observable
-class AppState {
-    let immersiveSpaceID = "ImmersiveSpace"
+class AppState: ObservableObject {
+    let immersiveSpaceID = "PreviewFurniture"
     enum WindowState {
-        case Authentication
-        case SocialMedia
-        case Me
+        case authentication
+        case socialMedia
+        case me
     }
     
-    var currentState = WindowState.Authentication
+    var currentState = WindowState.authentication
+    
+    var isImmersive = false
 }
+

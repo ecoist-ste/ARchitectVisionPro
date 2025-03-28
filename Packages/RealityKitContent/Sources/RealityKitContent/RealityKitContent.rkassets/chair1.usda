@@ -16,7 +16,7 @@ def Xform "Root"
     )
     {
         float3 xformOp:scale = (0.01, 0.01, 0.01)
-        float3 xformOp:translate = (0.017765716, 1.145224, -1.6140645)
+        float3 xformOp:translate = (-0.03766775, 0, -1.697228)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         def RealityKitComponent "InputTarget"

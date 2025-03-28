@@ -16,7 +16,22 @@ struct ARchitectVisionProApp: App {
         WindowGroup {
             AuthenticationView()
                 .environment(appState)
+                .frame(
+                    minWidth: 1280,
+                    minHeight: 720
+                )
         }.windowResizability(.contentSize)
+        
+        ImmersiveSpace(id: appState.immersiveSpaceID) {
+            FurniturePlacementView()
+                .onAppear {
+                    appState.isImmersive = true
+                }
+                .onDisappear {
+                    appState.isImmersive = false
+                }
+//                .preferredSurroundingsEffect(.dim(intensity: 0.5))
+        }
         
         
         /// The code below allows the user to open up a new window, super cool, and we might use it later
@@ -28,9 +43,7 @@ struct ARchitectVisionProApp: App {
 //        .windowResizability(.contentSize)
 //        .windowStyle(.plain)
         
-        ImmersiveSpace(id: "PreviewFurniture") {
-            FurniturePlacementView()
-        }
+
         
 
      }
