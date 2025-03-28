@@ -7,17 +7,12 @@ Jordan Miao and I are the project lead of both ARchitect visionOS and iOS. You c
 
 This project leverages **RealityKit, Shader Graph, and Firebase** to create an immersive AR/VR experience on Apple Vision Pro that is operational in both frontend and backend. It integrates **hand tracking, spatial awareness, and real-time 3D interactions** to redefine user engagement in augmented environments.
 
-##  Demo  
+##  Youtube Demo  
 This is a partial demo of the app as we are developing many exciting features at the moment and will frequently update this demo part. 
 - This video demos our prototype of allowing user to enter an immersive space from a mixed reality space as an entry point, and then manipulate a piece of furniture in the environment while providing information about it through attachments.
-  
-https://github.com/user-attachments/assets/1f3bd97f-84e0-4f7b-9890-ba2866c8baf7
-
-- The video below demos the unfinished social media aspect of our app where users can view content created by other users:
 
 
-https://github.com/user-attachments/assets/10af67e1-08d9-4203-a709-97e2110c48ec
-
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/gdjXW1fZVeU/0.jpg)](https://www.youtube.com/watch?v=gdjXW1fZVeU)
 
 
 
