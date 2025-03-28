@@ -18,17 +18,21 @@ struct FurniturePlacementView: View {
     
     var body: some View {
         RealityView { content, attachments in
-            if let scene = try? await Entity(named: "chair1", in: realityKitContentBundle) {
+            if let scene = try? await Entity(named: "table1", in: realityKitContentBundle) {
+                scene.components.set(CollisionComponent(shapes: [.generateBox(size: [0.1, 0.1, 0.1])]))
+                scene.components.set(InputTargetComponent(allowedInputTypes: .all))
                 content.add(scene)
+
+        
                 print("scene's position: ", scene.position)
                 
                 if let lock = attachments.entity(for: "lock") {
                     
-                    lock.position = [0.5, 1.5, -2]
+                    lock.position = scene.position + SIMD3<Float>(0, 2, 0)
                 
                     scene.addChild(lock)
                     
-//                    print("label's position: ", label.position)
+                    print("label's position: ", lock.position)
                 }
             }
         } update: { content, attachments in
@@ -51,6 +55,7 @@ struct FurniturePlacementView: View {
         }
         .gesture(
             DragGesture()
+                .targetedToAnyEntity()
                 .onChanged{ value in
                     dragOffset.x = Float(value.translation.width) * 0.001
                     dragOffset.z = Float(value.translation.height) * 0.001

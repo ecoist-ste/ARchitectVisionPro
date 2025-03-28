@@ -44,11 +44,7 @@ struct AuthenticationView: View {
                 HStack { Spacer() }
                 
                 logo
-                
-                Text(showInstruction || !showLandingPage ? "Long Press Logo to Continue" : "")
-                    .opacity(0.5)
-                    .transition(.opacity)
-                
+
                 Spacer()
             }
             .background(.thinMaterial)
@@ -75,18 +71,18 @@ struct AuthenticationView: View {
                     .foregroundColor(.black)
                 
             }
-            .onLongPressGesture(minimumDuration: 2) {
+            .onAppear {
+                startColorChangeTimer()
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     showWelcomePage = true
                 }
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) { showLandingPage = true }
-            } onPressingChanged: { value in
-                startColorChangeTimer()
-                isPressing = value
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) { showLandingPage = true
+                }
+                
             }
-            
+
             Text("Find your furniture inspirations")
                 .font(.system(size: 20))
                 .padding(.top, 2)

@@ -11,6 +11,7 @@ struct FurniturePostDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openImmersiveSpace) private var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
+    @EnvironmentObject private var appState: AppState
     @State private var isImmersive = false
     @State private var count = 1
     
@@ -41,8 +42,10 @@ paired with plush, foam-filled cushions upholstered in soft gray fabric.
                             Task {
                                 if isImmersive {
                                     await dismissImmersiveSpace()
+                                    appState.isImmersive = false
                                 } else {
                                     await openImmersiveSpace(id: "PreviewFurniture")
+                                    appState.isImmersive = true
                                 }
                                 
                                 isImmersive.toggle()
@@ -132,10 +135,10 @@ paired with plush, foam-filled cushions upholstered in soft gray fabric.
                         } label: {
                             Text("Add to cart (\(price, format: .currency(code: "USD")))")
                                 .foregroundStyle(.black)
-                              
-                                
+                            
+                            
                         }.background(Color.yellow, in: RoundedRectangle(cornerRadius: 22))
-
+                        
                     }
                     
                     Spacer()
@@ -153,4 +156,5 @@ paired with plush, foam-filled cushions upholstered in soft gray fabric.
 
 #Preview {
     FurniturePostDetailView(image: "table12d", name: "Table 1", description: "Side table, stone, 40x28cm", price: 83)
+        .environmentObject(AppState())
 }
